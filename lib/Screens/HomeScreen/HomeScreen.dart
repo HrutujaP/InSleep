@@ -1,7 +1,10 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:in_sleep/Screens/HomeScreen/Components/availableCoursesInfo.dart';
+import 'package:in_sleep/Screens/HomeScreen/Components/navBarItems.dart';
 import 'package:in_sleep/constants/appcolors.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
@@ -36,7 +39,40 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backGroundColor,
+      extendBody: true,
+      backgroundColor: Colors.transparent,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        child: NavigationBar(
+          backgroundColor: AppColors.backGroundColor,
+          height: 69,
+          destinations: const [
+            NavBarItems(
+              icon: Icons.home_rounded,
+              title: 'Home',
+            ),
+            NavBarItems(
+              icon: CupertinoIcons.moon,
+              title: 'Sleep',
+            ),
+            NavBarItems(
+              icon: FontAwesomeIcons.handsPraying,
+              title: 'Meditate',
+            ),
+            NavBarItems(
+              icon: CupertinoIcons.double_music_note,
+              title: 'Music',
+            ),
+            NavBarItems(
+              icon: Icons.person_rounded,
+              title: 'Profile',
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -107,18 +143,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   ]),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height / 1.24,
+              height: MediaQuery.of(context).size.height / 1.4,
               child: Stack(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 1.35,
+                    height: MediaQuery.of(context).size.height / 1.4,
                     child: const Image(
                       image: AssetImage("assets/images/HomepageBg.webp"),
                       fit: BoxFit.cover,
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 1.35,
+                    height: MediaQuery.of(context).size.height / 1.4,
                     child: SingleChildScrollView(
                       physics: BouncingScrollPhysics(),
                       child: Column(

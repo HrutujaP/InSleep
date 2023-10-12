@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:in_sleep/Screens/HomeScreen/HomeScreen.dart';
 import 'package:in_sleep/constants/appcolors.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: AppColors.backGroundColor,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: AppColors.backGroundColor,
+      systemNavigationBarIconBrightness: Brightness.light,
+    ),
+  );
   runApp(const MyApp());
 }
 
